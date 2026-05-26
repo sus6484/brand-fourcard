@@ -190,6 +190,72 @@
             border: 1px solid rgba(38, 85, 48, 0.15);
             border-radius: 16px;
         }
+
+        /* 창업 상담 — 섹션 전체 메인 그린 (Tailwind CDN과 무관하게 적용) */
+        #inquiry-form.inquiry-form-section {
+            background: linear-gradient(135deg, #265530 0%, #1a3a20 100%) !important;
+            color: #ffffff;
+        }
+
+        #inquiry-form .inquiry-eyebrow {
+            color: #c8e6c9;
+        }
+
+        #inquiry-form .inquiry-heading,
+        #inquiry-form .inquiry-form-title {
+            color: #ffffff;
+        }
+
+        #inquiry-form .inquiry-lead {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        #inquiry-form .inquiry-contact-label {
+            color: rgba(200, 230, 200, 0.9);
+        }
+
+        #inquiry-form .inquiry-contact-value {
+            color: #ffffff;
+        }
+
+        #inquiry-form .inquiry-icon-box {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        #inquiry-form .inquiry-icon-box .material-symbols-outlined {
+            color: #ffffff;
+        }
+
+        #inquiry-form label {
+            color: rgba(232, 245, 233, 0.95);
+        }
+
+        #inquiry-form input,
+        #inquiry-form select,
+        #inquiry-form textarea {
+            background-color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            color: #1a1a1a;
+        }
+
+        #inquiry-form input::placeholder,
+        #inquiry-form textarea::placeholder {
+            color: #888888;
+        }
+
+        #inquiry-form .inquiry-submit {
+            background-color: #ffffff;
+            color: #265530;
+        }
+
+        #inquiry-form .inquiry-submit:hover {
+            background-color: #f0f7f1;
+        }
+
+        #inquiry-form .inquiry-submit.is-success {
+            background-color: #4ade80;
+            color: #14532d;
+        }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
@@ -555,7 +621,7 @@
             </div>
 
             <div id="store-gallery-grid" class="gallery-grid grid grid-cols-3 gap-2 md:gap-3 reveal" aria-label="매장 갤러리"></div>
-            <p class="reveal text-center text-xs text-on-surface-variant mt-6">* 갤러리 이미지는 임시 placeholder입니다. 추후 실제 매장 사진으로 교체해 주세요.</p>
+            <p class="reveal text-center text-xs text-on-surface-variant mt-6">* 매장 사진은 <code class="text-on-surface">image/gallery/01.jpg</code> ~ <code class="text-on-surface">30.jpg</code>에 넣으면 자동 반영됩니다. (자세한 순서는 해당 폴더 README 참고)</p>
         </div>
     </section>
         </div>
@@ -734,73 +800,71 @@
     </section>
 
     <!-- Inquiry Form Section -->
-    <section id="inquiry-form" class="section-spacing bg-white">
+    <section id="inquiry-form" class="inquiry-form-section section-spacing" style="background: linear-gradient(135deg, #265530 0%, #1a3a20 100%);">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
             <div class="grid md:grid-cols-2 gap-12 items-start">
                 <div class="reveal">
-                    <p class="text-sm font-semibold text-primary tracking-widest mb-2">지금 바로 시작하세요</p>
-                    <h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-8">프리미엄 성공을 향한 첫 걸음</h2>
-                    <p class="text-lg text-on-surface-variant mb-8">
+                    <p class="inquiry-eyebrow text-sm font-semibold tracking-widest mb-2">지금 바로 시작하세요</p>
+                    <h2 class="inquiry-heading text-4xl md:text-5xl font-bold mb-8">프리미엄 성공을 향한 첫 걸음</h2>
+                    <p class="inquiry-lead text-lg mb-8 leading-relaxed">
                         아래 양식을 작성해 주시면, 저희 가맹 개발 팀이 24시간 이내에 연락하여 종합적인 투자 가이드를 제공해 드립니다.
                     </p>
 
                     <div class="space-y-6">
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">call</span>
+                            <div class="inquiry-icon-box w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined">call</span>
                             </div>
                             <div>
-                                <p class="text-xs text-on-surface-variant font-semibold">대표 번호</p>
-                                <p class="text-lg font-bold text-on-surface">1588-4040</p>
+                                <p class="inquiry-contact-label text-xs font-semibold">대표 번호</p>
+                                <p class="inquiry-contact-value text-lg font-bold">1588-4040</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                                <span class="material-symbols-outlined text-primary">mail</span>
+                            <div class="inquiry-icon-box w-12 h-12 rounded-lg flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined">mail</span>
                             </div>
                             <div>
-                                <p class="text-xs text-on-surface-variant font-semibold">이메일 문의</p>
-                                <p class="text-lg font-bold text-on-surface">biz@fourcardpub.com</p>
+                                <p class="inquiry-contact-label text-xs font-semibold">이메일 문의</p>
+                                <p class="inquiry-contact-value text-lg font-bold">biz@fourcardpub.com</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="reveal">
-                    <div class="bg-surface-dim border-2 border-primary rounded-lg p-8">
-                        <h3 class="text-2xl font-bold text-primary mb-6">창업 상담 신청</h3>
-                        <form class="space-y-4">
-                            <div class="grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="text-xs font-bold text-on-surface-variant mb-2 block">성함 *</label>
-                                    <input type="text" placeholder="성함을 입력하세요" class="w-full p-3 bg-white border border-outline rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                </div>
-                                <div>
-                                    <label class="text-xs font-bold text-on-surface-variant mb-2 block">연락처 *</label>
-                                    <input type="tel" placeholder="010-0000-0000" class="w-full p-3 bg-white border border-outline rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                </div>
+                    <h3 class="inquiry-form-title text-2xl font-bold mb-6">창업 상담 신청</h3>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs font-bold mb-2 block">성함 *</label>
+                                <input type="text" placeholder="성함을 입력하세요" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50" required>
                             </div>
                             <div>
-                                <label class="text-xs font-bold text-on-surface-variant mb-2 block">희망 지역 *</label>
-                                <select class="w-full p-3 bg-white border border-outline rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                                    <option value="">지역 선택</option>
-                                    <option value="seoul">서울/수도권</option>
-                                    <option value="busan">부산/경상</option>
-                                    <option value="daejeon">대전/충청</option>
-                                    <option value="gwangju">광주/전라</option>
-                                    <option value="other">기타</option>
-                                </select>
+                                <label class="text-xs font-bold mb-2 block">연락처 *</label>
+                                <input type="tel" placeholder="010-0000-0000" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50" required>
                             </div>
-                            <div>
-                                <label class="text-xs font-bold text-on-surface-variant mb-2 block">문의 내용</label>
-                                <textarea placeholder="궁금하신 내용을 입력해 주세요" rows="5" class="w-full p-3 bg-white border border-outline rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-primary text-white py-3 font-bold rounded-lg hover:bg-primary-dark transition flex items-center justify-center gap-2">
-                                상담 신청하기
-                                <span class="material-symbols-outlined">send</span>
-                            </button>
-                        </form>
-                    </div>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold mb-2 block">희망 지역 *</label>
+                            <select class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50" required>
+                                <option value="">지역 선택</option>
+                                <option value="seoul">서울/수도권</option>
+                                <option value="busan">부산/경상</option>
+                                <option value="daejeon">대전/충청</option>
+                                <option value="gwangju">광주/전라</option>
+                                <option value="other">기타</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold mb-2 block">문의 내용</label>
+                            <textarea placeholder="궁금하신 내용을 입력해 주세요" rows="5" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50"></textarea>
+                        </div>
+                        <button type="submit" class="inquiry-submit w-full py-3 font-bold rounded-lg transition flex items-center justify-center gap-2">
+                            상담 신청하기
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1093,12 +1157,12 @@
 
             setTimeout(() => {
                 btn.innerHTML = '문의가 성공적으로 접수되었습니다';
-                btn.classList.replace('bg-primary', 'bg-green-600');
+                btn.classList.add('is-success');
                 this.reset();
                 setTimeout(() => {
                     btn.innerHTML = originalText;
                     btn.disabled = false;
-                    btn.classList.replace('bg-green-600', 'bg-primary');
+                    btn.classList.remove('is-success');
                 }, 3000);
             }, 1500);
         });

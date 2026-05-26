@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdea5",
+                    "surface-tint": "#396841",
+                    "surface-dim": "#dadada",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f4",
+                    "inverse-primary": "#9fd3a3",
+                    "on-secondary-container": "#785a1a",
+                    "surface-bright": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "primary-fixed": "#bbf0be",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "error": "#ba1a1a",
+                    "secondary": "#775a19",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "background": "#f9f9f9",
+                    "primary": "#0c3d1b",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#e9c176",
+                    "tertiary": "#353534",
+                    "on-primary-fixed-variant": "#21502c",
+                    "on-primary-fixed": "#002109",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#fed488",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#414941",
+                    "on-primary-container": "#95c899",
+                    "primary-container": "#265530",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary-container": "#4c4b4b",
+                    "outline": "#717970",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "outline-variant": "#c1c9be",
+                    "primary-fixed-dim": "#9fd3a3",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "on-secondary-fixed": "#261900",
+                    "on-tertiary-container": "#bdbbbb",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "container-max": "1200px",
+                    "lg": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "headline-xl-mobile": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: 100%;
+            height: 1px;
+            background-color: #c1c9be;
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .step-line::after { display: none; }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="fixed w-full top-0 left-0 bg-surface z-50 border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-center h-20">
+<span class="text-headline-md font-headline-md text-primary tracking-tight">FOURCARD HOLD'EM PUB</span>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-body-md text-on-surface hover:text-primary transition-colors duration-200" href="#">브랜드 스토리</a>
+<a class="font-body-md text-on-surface hover:text-primary transition-colors duration-200" href="#">매장 안내</a>
+<a class="font-body-md text-primary border-b-2 border-primary pb-1 font-bold" href="#">가맹 문의</a>
+<button class="bg-primary text-on-primary px-md py-xs font-label-caps rounded-lg hover:opacity-90 transition-opacity">빠른 문의</button>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A high-end, sophisticated interior of a luxury Hold'em pub" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3buG1UgAVTOA3pjLQZ603Zmi_l89swPdyieX4RlJdGpSYS6hX148gh2Fxby_CnpPqLh3bxvXGskdAIWPtsalmwZmHjomwoAFvAu-P-OAKGSlQFTaoWI5krt2hualxIA00AVK2IjLUiQ6MRBwFjLaoRcVn6Qw7s6zPgBWGapejVt9XjMAVglzM_YDY-b6B-dyVDZsjeA8gYKkrXhY-WcVr2gFW3V5kk8JiVSP7o_W3tNtm33EXOCcku0SK5NKfDfYB_o3p2zSks5ET"/>
+<div class="absolute inset-0 bg-primary/40 backdrop-blur-[2px]"></div>
+<div class="relative max-w-container-max mx-auto px-margin-mobile md:px-gutter w-full text-on-primary">
+<p class="font-label-caps text-label-caps mb-sm tracking-widest text-primary-fixed">성공적인 파트너십</p>
+<h1 class="font-headline-xl text-headline-xl mb-md max-w-2xl leading-tight">엘리트 소셜 클럽 &amp; 게이밍 문화</h1>
+<p class="font-body-lg text-body-lg max-w-xl opacity-90">전문적인 관리와 프리미엄 라운지 문화의 시너지를 경험하세요. 업계에서 가장 신뢰받는 홀덤펍 프랜차이즈에 합류하십시오.</p>
+</div>
+</section>
+<!-- Section 1: Expected Revenue -->
+<section class="py-xl bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-lg">
+<span class="text-primary font-label-caps text-label-caps">PROFITABILITY</span>
+<h2 class="font-headline-lg text-headline-lg mt-base">예상 수익 분석</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-md items-start">
+<div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant p-md md:p-lg rounded-xl">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant">
+<th class="py-md font-label-caps text-label-caps text-on-surface-variant">항목</th>
+<th class="py-md font-label-caps text-label-caps text-on-surface-variant">월 매출액</th>
+<th class="py-md font-label-caps text-label-caps text-on-surface-variant">비율</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="border-b border-outline-variant">
+<td class="py-md font-semibold">총 매출</td>
+<td class="py-md">₩ 85,000,000</td>
+<td class="py-md">100%</td>
+</tr>
+<tr class="border-b border-outline-variant">
+<td class="py-md">인건비</td>
+<td class="py-md">₩ 12,000,000</td>
+<td class="py-md text-error">14.1%</td>
+</tr>
+<tr class="border-b border-outline-variant">
+<td class="py-md">임대료 및 관리비</td>
+<td class="py-md">₩ 8,500,000</td>
+<td class="py-md text-error">10.0%</td>
+</tr>
+<tr class="border-b border-outline-variant">
+<td class="py-md">식음료 원가</td>
+<td class="py-md">₩ 15,300,000</td>
+<td class="py-md text-error">18.0%</td>
+</tr>
+<tr class="bg-primary-container/10">
+<td class="py-md font-bold text-primary">영업 이익</td>
+<td class="py-md font-bold text-primary">₩ 49,200,000</td>
+<td class="py-md font-bold text-primary">57.9%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="mt-md text-body-sm text-on-surface-variant italic">* 이 수치는 10개의 테이블을 갖춘 200m² 규모 매장의 평균을 기준으로 합니다. ROI는 영업 시작 후 14-18개월 이내로 예상됩니다.</p>
+</div>
+<div class="lg:col-span-4 flex flex-col gap-md">
+<div class="bg-primary p-md rounded-xl text-on-primary">
+<span class="material-symbols-outlined text-headline-lg mb-sm">trending_up</span>
+<h3 class="font-headline-md text-headline-md mb-xs">높은 마진율</h3>
+<p class="text-body-sm opacity-80">효율적인 운영 모델을 통해 인건비와 원가를 최적화하여 레저 산업 내 최고 수준의 순이익률을 보장합니다.</p>
+</div>
+<div class="bg-surface-container border border-outline-variant p-md rounded-xl">
+<span class="material-symbols-outlined text-primary text-headline-lg mb-sm">verified</span>
+<h3 class="font-headline-md text-headline-md mb-xs">투명한 수익률</h3>
+<p class="text-body-sm text-on-surface-variant">검증된 재무 모델링을 통해 초기 투자금 회수를 위한 명확한 로드맵을 제공합니다.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Franchise Process -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-xl">
+<span class="text-primary font-label-caps text-label-caps">ROADMAP</span>
+<h2 class="font-headline-lg text-headline-lg mt-base">창업 프로세스</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg relative">
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-md font-headline-md">01</div>
+<h4 class="font-headline-md text-on-surface mb-xs">상담 문의</h4>
+<p class="text-body-sm text-on-surface-variant px-sm">브랜드 소개 및 상세 창업 상담이 진행됩니다.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-md font-headline-md">02</div>
+<h4 class="font-headline-md text-on-surface mb-xs">점포 선정</h4>
+<p class="text-body-sm text-on-surface-variant px-sm">상권 분석 및 입지 타당성 조사를 실시합니다.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-md font-headline-md">03</div>
+<h4 class="font-headline-md text-on-surface mb-xs">계약 체결</h4>
+<p class="text-body-sm text-on-surface-variant px-sm">가맹 계약 체결 및 인테리어 설계를 확정합니다.</p>
+</div>
+<!-- Step 4 -->
+<div class="relative z-10 flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center mb-md font-headline-md">04</div>
+<h4 class="font-headline-md text-on-surface mb-xs">그랜드 오픈</h4>
+<p class="text-body-sm text-on-surface-variant px-sm">직원 교육 및 마케팅 실시 후 정식 오픈합니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Inquiry Form -->
+<section class="py-xl bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+<div>
+<span class="text-primary font-label-caps text-label-caps">GET STARTED</span>
+<h2 class="font-headline-xl text-headline-xl mt-base mb-md">프리미엄 성공을 향한 첫 걸음을 내딛으세요</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">아래 양식을 작성해 주시면, 저희 가맹 개발 팀이 24시간 이내에 연락하여 종합적인 투자 가이드를 제공해 드립니다.</p>
+<div class="space-y-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">대표 번호</p>
+<p class="font-headline-md text-headline-md">1588-4040</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">이메일 문의</p>
+<p class="font-headline-md text-headline-md">biz@fourcardpub.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant p-md md:p-xl rounded-xl shadow-sm">
+<form class="space-y-md">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">성함</label>
+<input class="w-full p-sm bg-surface border border-outline-variant rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="성함을 입력하세요" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">연락처</label>
+<input class="w-full p-sm bg-surface border border-outline-variant rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="010-0000-0000" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">희망 지역</label>
+<input class="w-full p-sm bg-surface border border-outline-variant rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="희망하시는 지역을 입력하세요" type="text"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-caps text-label-caps text-on-surface-variant">문의 내용</label>
+<textarea class="w-full p-sm bg-surface border border-outline-variant rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="궁금하신 내용을 입력해 주세요" rows="4"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-md font-label-caps rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-sm" type="submit">
+                                문의하기 <span class="material-symbols-outlined">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA: HQ Support -->
+<section class="py-xl bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
+<h2 class="font-headline-xl text-headline-xl mb-md">모든 파트너를 위한 엘리트 지원 시스템</h2>
+<p class="font-body-lg text-body-lg mb-lg opacity-90 max-w-2xl mx-auto">전문 딜러 교육부터 전국 단위 마케팅까지, 포카드 본사는 귀하의 매장이 지역 내 선두주자가 될 수 있도록 전방위적인 지원을 아끼지 않습니다.</p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md max-w-4xl mx-auto">
+<div class="p-md bg-primary-container/20 border border-on-primary/10 rounded-lg">
+<span class="material-symbols-outlined mb-base">school</span>
+<h5 class="font-label-caps text-label-caps">딜러 아카데미</h5>
+</div>
+<div class="p-md bg-primary-container/20 border border-on-primary/10 rounded-lg">
+<span class="material-symbols-outlined mb-base">campaign</span>
+<h5 class="font-label-caps text-label-caps">전국 마케팅 지원</h5>
+</div>
+<div class="p-md bg-primary-container/20 border border-on-primary/10 rounded-lg">
+<span class="material-symbols-outlined mb-base">inventory_2</span>
+<h5 class="font-label-caps text-label-caps">물류 네트워크</h5>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest py-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col gap-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary">FOURCARD HOLD'EM PUB</span>
+<div class="flex flex-wrap gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">이용약관</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">개인정보처리방침</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">고객지원</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">인스타그램</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">페이스북</a>
+</div>
+</div>
+<div class="pt-md border-t border-outline-variant flex flex-col md:flex-row justify-between gap-sm">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 FOURCARD HOLD'EM PUB. All rights reserved.</p>
+<div class="flex gap-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">본사: 서울특별시 강남구 테헤란로 123</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">사업자등록번호: 123-45-67890</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> 처리 중...';
+        
+        setTimeout(() => {
+            btn.innerHTML = '문의가 성공적으로 접수되었습니다';
+            btn.classList.replace('bg-primary', 'bg-secondary');
+            this.reset();
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.classList.replace('bg-secondary', 'bg-primary');
+            }, 3000);
+        }, 1500);
+    });
+</script>
+</body></html>

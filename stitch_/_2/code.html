@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>매장 정보 및 전략 | FOURCARD HOLD'EM PUB</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "secondary-fixed": "#ffdea5",
+                    "surface-tint": "#396841",
+                    "surface-dim": "#dadada",
+                    "on-background": "#1a1c1c",
+                    "surface-container-low": "#f3f3f4",
+                    "inverse-primary": "#9fd3a3",
+                    "on-secondary-container": "#785a1a",
+                    "surface-bright": "#f9f9f9",
+                    "on-surface": "#1a1c1c",
+                    "primary-fixed": "#bbf0be",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "error": "#ba1a1a",
+                    "secondary": "#775a19",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#eeeeee",
+                    "background": "#f9f9f9",
+                    "primary": "#0c3d1b",
+                    "tertiary-fixed": "#e5e2e1",
+                    "surface": "#f9f9f9",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#e9c176",
+                    "tertiary": "#353534",
+                    "on-primary-fixed-variant": "#21502c",
+                    "on-primary-fixed": "#002109",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "inverse-surface": "#2f3131",
+                    "secondary-container": "#fed488",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#414941",
+                    "on-primary-container": "#95c899",
+                    "primary-container": "#265530",
+                    "surface-container-highest": "#e2e2e2",
+                    "tertiary-container": "#4c4b4b",
+                    "outline": "#717970",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "outline-variant": "#c1c9be",
+                    "primary-fixed-dim": "#9fd3a3",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-tertiary-fixed-variant": "#474746",
+                    "on-secondary-fixed": "#261900",
+                    "on-tertiary-container": "#bdbbbb",
+                    "surface-variant": "#e2e2e2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "gutter": "24px",
+                    "sm": "12px",
+                    "md": "24px",
+                    "xs": "4px",
+                    "xl": "80px",
+                    "container-max": "1200px",
+                    "lg": "48px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Hanken Grotesk"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "headline-xl": ["Hanken Grotesk"],
+                    "headline-xl-mobile": ["Hanken Grotesk"],
+                    "label-caps": ["Inter"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-xl-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed w-full top-0 left-0 bg-surface z-50 border-b border-outline-variant">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex justify-between items-center h-20">
+<a class="text-headline-md font-headline-md text-primary tracking-tight" href="#">FOURCARD HOLD'EM PUB</a>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors" href="#">브랜드 스토리</a>
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary pb-1 font-bold" href="#">매장 정보</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors" href="#">가맹 문의</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-3 font-label-caps text-label-caps font-bold rounded-lg hover:opacity-80 transition-opacity">
+            빠른 상담
+        </button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<header class="bg-primary py-xl md:py-[120px] text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<span class="font-label-caps text-label-caps text-primary-fixed uppercase tracking-widest mb-4 block">전략 및 운영</span>
+<h1 class="font-headline-xl text-headline-xl mb-6 max-w-2xl leading-tight">현대적인 플레이어를 위한 엘리트 매니지먼트</h1>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-xl">포카드는 모든 지점에서 공정한 플레이와 프리미엄 서비스를 보장하기 위해 체계적이고 전문적인 포커 펍 관리 방식을 제공합니다.</p>
+</div>
+</header>
+<!-- Section 1: Store Operations (매장 운영 방식) -->
+<section class="py-xl bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">매장 운영 시스템</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">효율성과 플레이어 만족도를 극대화하기 위해 최적화된 일일 워크플로우입니다.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+<!-- Step 1 -->
+<div class="flex flex-col gap-4 p-8 border border-outline-variant bg-white">
+<span class="material-symbols-outlined text-primary text-4xl">inventory</span>
+<h3 class="font-headline-md text-headline-md">01. 오픈 준비</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">표준화된 재고 확인, 장비 점검 및 개장 전 딜러 브리핑을 진행합니다.</p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-4 p-8 border border-outline-variant bg-white">
+<span class="material-symbols-outlined text-primary text-4xl">how_to_reg</span>
+<h3 class="font-headline-md text-headline-md">02. 고객 응대</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">전용 멤버십 체크인 및 방문객을 위한 원활한 좌석 안내 시스템을 운영합니다.</p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-4 p-8 border border-outline-variant bg-white">
+<span class="material-symbols-outlined text-primary text-4xl">casino</span>
+<h3 class="font-headline-md text-headline-md">03. 게임 운영</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">피크 시간대 동안 공정한 게임 모니터링과 전문적인 딜러 로테이션을 유지합니다.</p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col gap-4 p-8 border border-outline-variant bg-white">
+<span class="material-symbols-outlined text-primary text-4xl">task_alt</span>
+<h3 class="font-headline-md text-headline-md">04. 마감 관리</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">자동화된 일일 보고서 생성 및 엄격한 칩 정산 프로세스를 거칩니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Commercial Area Analysis (상권 분석) -->
+<section class="py-xl bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="flex flex-col md:flex-row gap-xl items-center">
+<div class="w-full md:w-1/2">
+<div class="mb-8">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">정밀한 상권 분석 전략</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">본사는 자체 빅데이터 분석을 통해 잠재력이 높은 상업 지역을 식별하여 귀하의 투자가 번창하는 생태계에 배치되도록 합니다.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary-container p-1 rounded">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<div>
+<span class="font-body-md font-bold block">인구 통계 타겟팅</span>
+<span class="text-body-sm text-on-surface-variant">20-40대 연령층의 인구 통계 및 전문직 종사자 밀도에 대한 상세 분석을 수행합니다.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary-container p-1 rounded">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<div>
+<span class="font-body-md font-bold block">경쟁업체 밀도 지도</span>
+<span class="text-body-sm text-on-surface-variant">기존 게임장 위치를 매핑하여 블루오션 기회를 포착합니다.</span>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-primary-container p-1 rounded">
+<span class="material-symbols-outlined text-white text-sm">check</span>
+</div>
+<div>
+<span class="font-body-md font-bold block">접근성 지수</span>
+<span class="text-body-sm text-on-surface-variant">대중교통 근접성 및 주차 시설 가용성을 점수화하여 평가합니다.</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<div class="relative rounded-xl overflow-hidden shadow-xl border border-outline-variant">
+<img alt="상권 분석 대시보드" class="w-full h-[400px] object-cover" data-alt="A sophisticated data visualization dashboard showing a digital map of a metropolitan city with green glowing heatmaps. The screen is clean and professional, with thin white lines and technical UI elements overlaid. The setting is a darkened high-tech control room with soft ambient deep green lighting reflecting off glass surfaces, conveying a sense of elite intelligence and data-driven strategy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB97_ohGncDmJHZ-JauKRxWjqc0haOIbVQreKSbgmzkFKFbhpTJCMgieNbE6tXsaiuancN886WwwPqGZVFZGZ_MpHkI4YKxXqCbehP-zhg-dfN8Y5jTHmRQPcZI57K8XJ5hjccKvFoD8Ci96KxH7EO1Cy4Bqhd1E_2nv4yJiS3suKIbr6IH6YQO_oUvAjlpjwNIyR1QmhanH_hvlD3iVG8qp5dsrxaVkMeaZqAk6yF97rIpnsVmA9qDDd8kh0sWFfNl11FcGIJBwAHb"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-8">
+<p class="text-white font-label-caps text-label-caps uppercase">독자적인 본사 지능형 플랫폼</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Store Gallery -->
+<section class="py-xl bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="flex justify-between items-end mb-lg">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">탁월함의 포트폴리오</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">전문적인 플레이를 위해 디자인된 저희의 시그니처 매장 인테리어를 살펴보세요.</p>
+</div>
+<button class="hidden md:block text-primary font-label-caps text-label-caps border-b border-primary hover:opacity-70 transition-all">전체 매장 보기</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-lg cursor-pointer">
+<img alt="강남 플래그십 스토어" class="w-full h-[500px] object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A wide-angle interior shot of a luxury holdem pub featuring premium wooden poker tables and leather chairs. The ceiling has industrial-chic hanging lamps providing warm, focused light over the play area. The overall aesthetic is a blend of a high-end social club and a professional gaming arena, utilizing deep green felt and mahogany accents. The room is spacious with a clean, high-contrast light mode atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS8tdzYOgpsY_0uSlo-FOddKfwMg_61I1yuqcHOuCllbKj3HWa_VO_RfoT8x9h6DI3aDQqeSKd2tBvBAzr7gSBnlSieXkK1r3YE3m1f4_REMKpfYctfFjIoA0pWxrzV7EJES546lzmbf50EdfkDH7eDNQtu_2NuWFezTopqbgNi5BInL_UmWNCuAZ1A0OQSob_NyX4vGBoOqvbw3E4uZjnTwRl_CZmhHkwS9obhISiolK5zCEiTFHAIkKDD3ZQzRYu4UOuxK-YWay4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+<h3 class="text-white font-headline-md text-headline-md">강남 플래그십</h3>
+<p class="text-white/80 font-body-sm text-body-sm">현대적인 럭셔리와 전문적인 게이밍의 만남.</p>
+</div>
+</div>
+<!-- Side Stack -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="group relative overflow-hidden rounded-lg cursor-pointer h-[238px]">
+<img alt="라운지 구역" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A close-up of a premium bar section in a modern poker pub. The bar features minimalist shelving with high-end spirits and clear glassware. The lighting is soft and ambient with deep green LED accents running along the counter edge. The surface is polished dark marble, and the surrounding walls are a clean, off-white. The mood is sophisticated and exclusive." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZMnzIVvDJZbJvGwquE5vwDF6FhqdfbVQPuq_jpwvpOt39dQn3EaSpGTbWyfkb1iarWZGghpLTyB6jF-UMBKVIrXzGUOZZwQvOq5UjWoirnQI7N8SO1n4YOaLbnYgVaym77btOKo8kQxiPWrVTaH4wZRNASMRy67CyWJOthPpqc3oXz-eTYlZ4x0EpdMHWJGJkkQpVZK14pD3ejUrOEE6_5nvOV4Y91FtG-pcGii7f2alAI7-uu5X3R-Ae7KSnRA3HiLcejlAQnzWa"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h3 class="text-white font-headline-md text-headline-md">VIP 라운지</h3>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg cursor-pointer h-[238px]">
+<img alt="토너먼트 테이블" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed view of a professional poker dealer's station during a high-stakes game. The dealer's hands are precisely shuffling a deck of cards over a crisp, deep green felt table. In the background, stacks of high-quality ceramic chips in various colors are neatly organized. The lighting is focused and professional, highlighting the textures of the cards and the table surface in a minimalist social club setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9qCy6GHAu5OCXs1eIdyWxu0FoVHg7HC32mTdPH5vmo8cKU1vC_pfw3S8vuZ2j8-PHGczfjsLz425efV6BxMAtosUEnKNMna2UeZcgEOSYsL3O8rvfS0KmVLj3bN4dIKsVaV19DmzJpEvWAWiipsVaF2cdtQwjeeUIRddvgouBm6Dtd8Vu9p96Jb552ye957WLs6odKMqSxnwIIgCxtdZkM9cjn-K46RRB4g5eOBboZ7jXmAeoRN_Ftb93ZorddzE2s-WJh_aFmwJ1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<h3 class="text-white font-headline-md text-headline-md">토너먼트 아레나</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-xl bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center">
+<h2 class="font-headline-xl text-headline-xl mb-6">포카드와 함께 당신의 미래를 설계하세요</h2>
+<p class="font-body-lg text-body-lg text-primary-fixed-dim mb-lg max-w-2xl mx-auto">대한민국에서 가장 신뢰받는 홀덤펍 프랜차이즈에 합류하세요. 데이터 기반 파트너와 함께 여정을 시작하십시오.</p>
+<div class="flex flex-col md:flex-row gap-md justify-center">
+<button class="bg-surface text-primary px-xl py-4 font-label-caps text-label-caps font-bold hover:bg-primary-fixed transition-colors">가맹 책자 신청</button>
+<button class="border border-primary-fixed text-primary-fixed px-xl py-4 font-label-caps text-label-caps font-bold hover:bg-primary-container transition-colors">전문가 상담 신청</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-highest w-full py-lg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col gap-md">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<span class="text-headline-md font-headline-md text-primary">FOURCARD HOLD'EM PUB</span>
+<div class="flex flex-wrap gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">이용약관</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">개인정보 처리방침</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">문의하기</a>
+</div>
+</div>
+<div class="h-px bg-outline-variant w-full"></div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-base">
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-70">© 2024 FOURCARD HOLD'EM PUB. All rights reserved.</p>
+<div class="flex gap-md">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">인스타그램</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">페이스북</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Simple reveal animation for elements on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100', 'translate-y-0');
+                entry.target.classList.remove('opacity-0', 'translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section > div').forEach(section => {
+        section.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+        observer.observe(section);
+    });
+</script>
+</body></html>

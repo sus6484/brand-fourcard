@@ -191,6 +191,17 @@
             border-radius: 16px;
         }
 
+        .brand-visual {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .brand-visual-banner {
+            aspect-ratio: 21 / 9;
+            max-height: 280px;
+        }
+
         /* 창업 상담 — 섹션 전체 메인 그린 (Tailwind CDN과 무관하게 적용) */
         #inquiry-form.inquiry-form-section {
             background: linear-gradient(135deg, #265530 0%, #1a3a20 100%) !important;
@@ -271,8 +282,8 @@
                     <button type="button" class="nav-panel-trigger font-medium text-on-surface hover:text-primary transition" data-panel="brand">브랜드 소개</button>
                     <div class="absolute left-0 top-full pt-2 w-48 bg-white border border-outline rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="brand" data-section="brand-story">브랜드 소개</button>
-                        <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="brand" data-section="why-fourcard">Why 포카드?</button>
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="brand" data-section="competitiveness">브랜드 경쟁력</button>
+                        <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="brand" data-section="why-fourcard">Why 포카드?</button>
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="brand" data-section="competition-system">포카드 대회사</button>
                     </div>
                 </div>
@@ -288,6 +299,7 @@
                 <div class="nav-category dropdown relative group" data-panel="franchise">
                     <button type="button" class="nav-panel-trigger font-medium text-on-surface hover:text-primary transition" data-panel="franchise">가맹 문의</button>
                     <div class="absolute left-0 top-full pt-2 w-48 bg-white border border-outline rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                        <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="franchise" data-section="startup-cost">창업 비용</button>
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="franchise" data-section="expected-revenue">예상 수익</button>
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="franchise" data-section="franchise-process">창업 절차</button>
                         <button type="button" class="nav-section-trigger block w-full text-left px-4 py-3 hover:bg-surface-dim text-on-surface" data-panel="franchise" data-section="inquiry-form">창업 상담</button>
@@ -308,8 +320,8 @@
                     <button type="button" class="nav-panel-trigger w-full text-left font-bold text-primary py-2" data-panel="brand">브랜드 소개</button>
                     <div class="pl-4 space-y-1 mt-1">
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="brand" data-section="brand-story">브랜드 소개</button>
-                        <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="brand" data-section="why-fourcard">Why 포카드?</button>
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="brand" data-section="competitiveness">브랜드 경쟁력</button>
+                        <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="brand" data-section="why-fourcard">Why 포카드?</button>
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="brand" data-section="competition-system">포카드 대회사</button>
                     </div>
                 </div>
@@ -323,6 +335,7 @@
                 <div>
                     <button type="button" class="nav-panel-trigger w-full text-left font-bold text-primary py-2" data-panel="franchise">가맹 문의</button>
                     <div class="pl-4 space-y-1 mt-1">
+                        <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="franchise" data-section="startup-cost">창업 비용</button>
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="franchise" data-section="expected-revenue">예상 수익</button>
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="franchise" data-section="franchise-process">창업 절차</button>
                         <button type="button" class="nav-section-trigger block w-full text-left py-2 text-on-surface-variant" data-panel="franchise" data-section="inquiry-form">창업 상담</button>
@@ -336,19 +349,18 @@
     <section id="hero-section" class="hero-section relative min-h-screen flex items-center justify-center pt-20 text-white">
         <div class="absolute inset-0 z-0"></div>
         <div class="relative z-10 text-center px-4 max-w-4xl">
-            <p class="hero-copy text-sm tracking-widest mb-4 text-gray-300">머무르고 다시 찾는 구조의 공간</p>
             <h1 class="hero-title text-4xl md:text-6xl mb-6 leading-tight">
                 포카드 홀덤펍<br/>
                 <span class="text-green-100">성공적인 창업의 파트너</span>
             </h1>
-            <p class="hero-copy text-lg md:text-xl text-gray-100 mb-8 max-w-2xl mx-auto">
-                단순한 펍을 넘어 하나의 문화 공간을 만듭니다.<br/>
-                포카드가 증명해 온 성공 노하우를 이제 당신의 매장에 담아보세요.
+            <p class="hero-copy text-base md:text-lg text-gray-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                홀덤펍 창업을 혼자서 처음부터 고민하지 않아도 됩니다.<br/>
+                포카드가 전국에서 검증해 온 프랜차이즈 시스템을 따라, 당신의 매장으로 이어가세요.
             </p>
             <div class="flex justify-center">
-                <a href="#" id="hero-cta" class="hero-copy bg-primary text-white px-8 py-4 rounded-lg hover:bg-primary-dark transition inline-flex items-center gap-2">
+                <a href="#" id="hero-cta" class="bg-primary text-white text-lg md:text-xl font-bold px-10 py-4 md:py-5 rounded-lg hover:bg-primary-dark transition inline-flex items-center gap-2">
                     창업 상담 신청
-                    <span class="material-symbols-outlined">arrow_forward</span>
+                    <span class="material-symbols-outlined text-2xl">arrow_forward</span>
                 </a>
             </div>
         </div>
@@ -366,7 +378,7 @@
                         포카드 홀덤펍은 건전하고 체계적인 마인드 스포츠 문화의 정착을 지향합니다. 특히 포카드는 플레이와 경험이 자연스럽게 연결되고 효율적인 매출 구조가 함께 설계된 엔터테인먼트 공간입니다.
                     </p>
                     <p class="text-lg text-on-surface-variant mb-8 leading-relaxed">
-                        신뢰할 수 있는 전문적인 운영 시스템을 바탕으로 고객에게는 쾌적한 라운지 경험을, 가맹점주에게는 안정적인 매장 운영 환경을 제공합니다. 포카드는 지속 가능한 비즈니스를 위해 파트너와의 상생 관계를 지속적으로 구축해 나가고 있습니다.
+                        신뢰할 수 있는 전문적인 운영 시스템을 바탕으로 고객에게는 쾌적한 라운지 경험을, 가맹점주에게는 본사 운영 체계 기반의 안정적인 매장 환경을 제공합니다. 포카드는 지속 가능한 비즈니스를 위해 파트너와의 상생 관계를 지속적으로 구축해 나가고 있습니다.
                     </p>
                     <div class="flex gap-6">
                         <div>
@@ -386,52 +398,10 @@
         </div>
     </section>
 
-    <!-- Why FOURCARD Section -->
-    <section id="why-fourcard" class="section-spacing bg-surface-dim">
-        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div class="text-center mb-16 reveal">
-                <p class="text-sm font-semibold text-primary tracking-widest mb-2">포카드의 핵심 구조</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-on-surface">왜 포카드여야 하는가?</h2>
-                <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mt-6 leading-relaxed">
-                    유입 → 체류 → 매출 → 재방문으로 이어지는 검증된 매장 운영 사이클을 기본으로 합니다.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="reveal bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 01 · 유입 · 체류</p>
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
-                        <span class="material-symbols-outlined">playing_cards</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-2">게임</h3>
-                    <p class="text-on-surface-variant">1만원 데일리 토너먼트로 신규 유입, 테이블·게임 운영으로 체류 시간을 늘립니다.</p>
-                </div>
-
-                <div class="reveal bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 02 · 매출</p>
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
-                        <span class="material-symbols-outlined">event</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-2">이벤트</h3>
-                    <p class="text-on-surface-variant">요일별 이벤트로 방문 이유와 매출 집중 구간을 만듭니다.</p>
-                </div>
-
-                <div class="reveal bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 03 · 재방문</p>
-                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
-                        <span class="material-symbols-outlined">trophy</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-primary mb-2">경쟁</h3>
-                    <p class="text-on-surface-variant">랭킹·커뮤니티·본사 연계 대회로 단골화와 안정 매출을 이어갑니다.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Competitiveness Section -->
-    <section id="competitiveness" class="section-spacing bg-white">
+    <section id="competitiveness" class="section-spacing bg-surface-dim">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div class="text-center mb-12 reveal">
+            <div class="text-center mb-10 md:mb-12 reveal">
                 <p class="text-sm font-semibold text-primary tracking-widest mb-2">포카드의 차별성</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-on-surface">브랜드 경쟁력</h2>
                 <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mt-6 leading-relaxed">
@@ -449,7 +419,6 @@
                     <p class="text-white/90 text-sm md:text-base leading-relaxed flex-grow">
                         빅데이터 기반의 지역 분석으로 최고의 입지를 제안합니다. 인구통계, 경쟁사 분석, 접근성 지수까지 완벽하게 검토합니다.
                     </p>
-                    <p class="text-sm font-bold mt-6 pt-5 border-t border-white/15">성공률 95% 이상</p>
                 </article>
                 <article class="reveal flex flex-col bg-gradient-to-br from-primary to-primary-dark text-white p-6 md:p-8 rounded-lg h-full">
                     <div class="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center mb-5 shrink-0">
@@ -459,7 +428,6 @@
                     <p class="text-white/90 leading-relaxed flex-grow">
                         입지 선정부터 인테리어 설계, 오픈 교육까지 본사 전문가 팀이 모든 과정을 함께합니다. 단순 가맹이 아닌 진정한 파트너십입니다.
                     </p>
-                    <p class="text-sm font-semibold text-white/80 mt-5 pt-5 border-t border-white/20">전담 슈퍼바이저 배치</p>
                 </article>
                 <article class="reveal flex flex-col bg-gradient-to-br from-primary to-primary-dark text-white p-6 md:p-8 rounded-lg h-full">
                     <div class="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center mb-5 shrink-0">
@@ -469,7 +437,6 @@
                     <p class="text-white/90 leading-relaxed flex-grow">
                         요일별로 달라지는 프로그램으로 방문 이유를 매일 만들고, 매장 분위기와 재방문율을 꾸준히 끌어올립니다.
                     </p>
-                    <p class="text-sm font-semibold text-white/80 mt-5 pt-5 border-t border-white/20">요일별 이벤트 시스템</p>
                 </article>
                 <article class="reveal flex flex-col bg-gradient-to-br from-primary to-primary-dark text-white p-6 md:p-8 rounded-lg h-full">
                     <div class="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center mb-5 shrink-0">
@@ -479,7 +446,6 @@
                     <p class="text-white/90 leading-relaxed flex-grow">
                         초보자도 부담 없이 참여할 수 있는 안내와 운영 구조로 첫 방문의 진입 장벽을 낮추고, 신규 고객 유입을 넓힙니다.
                     </p>
-                    <p class="text-sm font-semibold text-white/80 mt-5 pt-5 border-t border-white/20">초보자 친화 운영</p>
                 </article>
                 <article class="reveal flex flex-col bg-gradient-to-br from-primary to-primary-dark text-white p-6 md:p-8 rounded-lg h-full">
                     <div class="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center mb-5 shrink-0">
@@ -489,7 +455,6 @@
                     <p class="text-white/90 leading-relaxed flex-grow">
                         플레이·이벤트·대회가 연결된 커뮤니티 환경에서 단골이 자연스럽게 쌓이고, 반복 방문을 통해 매출 기반이 단단해집니다.
                     </p>
-                    <p class="text-sm font-semibold text-white/80 mt-5 pt-5 border-t border-white/20">재방문·충성도 강화</p>
                 </article>
                 <article class="reveal flex flex-col bg-gradient-to-br from-primary to-primary-dark text-white p-6 md:p-8 rounded-lg h-full">
                     <div class="w-11 h-11 bg-white/20 rounded-lg flex items-center justify-center mb-5 shrink-0">
@@ -499,13 +464,63 @@
                     <p class="text-white/90 leading-relaxed flex-grow">
                         브랜드 굿즈와 통일된 공간 연출로 게임을 넘어선 경험을 제공하고, 포카드만의 아이덴티티를 오래 기억하게 합니다.
                     </p>
-                    <p class="text-sm font-semibold text-white/80 mt-5 pt-5 border-t border-white/20">브랜드 경험 확장</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- HQ Competition System (below brand competitiveness) -->
+    <!-- Why FOURCARD Section -->
+    <section id="why-fourcard" class="section-spacing bg-white">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="text-center mb-10 md:mb-12 reveal">
+                <p class="text-sm font-semibold text-primary tracking-widest mb-2">포카드의 핵심 구조</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-on-surface">왜 포카드여야 하는가?</h2>
+                <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mt-6 leading-relaxed">
+                    유입 → 체류 → 매출 → 재방문으로 이어지는 검증된 매장 운영 사이클을 기본으로 합니다.
+                </p>
+            </div>
+
+            <div class="reveal mb-10 md:mb-12 overflow-hidden rounded-xl shadow-md">
+                <img
+                    src="image/03.jpg"
+                    alt="포카드 홀덤펍 플레이"
+                    class="brand-visual brand-visual-banner w-full"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal bg-surface-dim p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 01 · 유입 · 체류</p>
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
+                        <span class="material-symbols-outlined">playing_cards</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">게임</h3>
+                    <p class="text-on-surface-variant">1만원 데일리 토너먼트로 신규 유입, 테이블·게임 운영으로 체류 시간을 늘립니다.</p>
+                </div>
+
+                <div class="reveal bg-surface-dim p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 02 · 매출</p>
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
+                        <span class="material-symbols-outlined">event</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">이벤트</h3>
+                    <p class="text-on-surface-variant">요일별 이벤트로 방문 이유와 매출 집중 구간을 만듭니다.</p>
+                </div>
+
+                <div class="reveal bg-surface-dim p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <p class="text-xs font-bold text-primary tracking-wider mb-3">STEP 03 · 재방문</p>
+                    <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white mb-4">
+                        <span class="material-symbols-outlined">trophy</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">경쟁</h3>
+                    <p class="text-on-surface-variant">랭킹·커뮤니티·본사 연계 대회로 단골화와 안정 매출을 이어갑니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HQ Competition System -->
     <section id="competition-system" class="section-spacing bg-[#eef0ee] border-t border-outline/60">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
             <div class="text-center mb-10 md:mb-12 reveal">
@@ -516,8 +531,8 @@
                 </p>
             </div>
 
-            <div class="reveal competition-intro text-white p-8 md:p-12 mb-10 md:mb-12 shadow-lg">
-                <div class="grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-12 items-center">
+            <div class="reveal competition-intro text-white p-8 md:p-12 mb-10 md:mb-12 shadow-lg overflow-hidden">
+                <div class="grid md:grid-cols-[1.2fr_1fr_0.9fr] gap-8 md:gap-10 items-center">
                     <div>
                         <p class="text-xs md:text-sm font-semibold text-green-100/90 tracking-widest mb-3">METIS · 정기 페이아웃 대회</p>
                         <p class="text-lg md:text-xl leading-relaxed text-white/95 mb-4">
@@ -526,6 +541,14 @@
                         <p class="text-base md:text-lg leading-relaxed text-white/80">
                             가맹점에서도 동일한 이벤트 체계로 지속적인 프로그램 운영이 가능합니다.
                         </p>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-white/20 shadow-lg max-h-56 md:max-h-none">
+                        <img
+                            src="https://images.unsplash.com/photo-1605806618519-497025833517?auto=format&fit=crop&w=700&q=80"
+                            alt="토너먼트 대회 현장"
+                            class="brand-visual w-full h-full min-h-[200px] object-cover"
+                            loading="lazy"
+                        >
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-5 md:p-6 text-center">
@@ -627,6 +650,98 @@
         </div>
 
         <div id="panel-franchise" class="content-panel">
+    <!-- Startup Cost Section -->
+    <section id="startup-cost" class="section-spacing bg-surface-dim">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+            <div class="text-center mb-16 reveal">
+                <p class="text-sm font-semibold text-primary tracking-widest mb-2">투자 안내</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-on-surface">창업 비용</h2>
+                <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mt-6 leading-relaxed">
+                    표준 규모 매장(10개 테이블, 약 200m²) 기준 예상 창업 비용입니다.<br class="hidden md:inline">
+                    입지·면적·인테리어 컨셉에 따라 실제 금액은 달라질 수 있습니다.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="reveal md:col-span-2 bg-white border-2 border-outline rounded-lg overflow-hidden">
+                    <div class="p-8 border-b border-outline bg-surface-dim">
+                        <h3 class="text-2xl font-bold text-on-surface mb-2">창업 비용 내역</h3>
+                        <p class="text-sm text-on-surface-variant">가맹비·인테리어·장비·보증금·초기 운영 자금을 포함한 항목별 견적입니다.</p>
+                    </div>
+                    <table class="w-full">
+                        <thead class="bg-surface-dim">
+                            <tr>
+                                <th class="px-6 py-4 text-left font-bold text-on-surface">항목</th>
+                                <th class="px-6 py-4 text-left font-bold text-on-surface">예상 금액</th>
+                                <th class="px-6 py-4 text-left font-bold text-on-surface">비고</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 font-bold text-on-surface">가맹비</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 30,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">브랜드 사용권·본사 지원</td>
+                            </tr>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 text-on-surface">인테리어</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 120,000,000 ~ 160,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">평수·디자인에 따라 변동</td>
+                            </tr>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 text-on-surface">장비·시설</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 85,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">테이블, 칩, AV, 주방 등</td>
+                            </tr>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 text-on-surface">임대 보증금</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 50,000,000 ~ 80,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">입지·면적 기준</td>
+                            </tr>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 text-on-surface">초기 운영 자금</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 40,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">약 3개월 인건비·재고 등</td>
+                            </tr>
+                            <tr class="border-t border-outline">
+                                <td class="px-6 py-4 text-on-surface">기타 (허가·교육·오픈)</td>
+                                <td class="px-6 py-4 text-on-surface">₩ 15,000,000</td>
+                                <td class="px-6 py-4 text-on-surface-variant text-sm">인허가, 직원 교육, 오픈 마케팅</td>
+                            </tr>
+                            <tr class="border-t-2 border-primary bg-primary/5">
+                                <td class="px-6 py-4 font-bold text-primary">총 창업 비용</td>
+                                <td class="px-6 py-4 font-bold text-primary">약 ₩ 3.4억 ~ 4.1억</td>
+                                <td class="px-6 py-4 text-sm text-on-surface-variant">표준 규모 매장 기준</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="px-8 py-4 text-xs text-on-surface-variant bg-surface-dim">
+                        * 위 금액은 참고용 견적이며, 상담 시 입지·규모·인테리어 범위에 맞춰 상세 견적을 안내해 드립니다. 확정 비용은 계약 단계에서 별도 협의합니다.
+                    </p>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="reveal bg-white border-2 border-primary p-8 rounded-lg">
+                        <div class="text-4xl font-bold text-primary mb-2">3~4억</div>
+                        <p class="text-on-surface-variant mb-4">표준 매장 총 투자 규모</p>
+                        <p class="text-sm text-on-surface-variant">인테리어·장비·보증금·초기 운영비 포함</p>
+                    </div>
+
+                    <div class="reveal bg-white border-2 border-outline p-8 rounded-lg">
+                        <div class="text-4xl font-bold text-on-surface mb-2">200m²</div>
+                        <p class="text-on-surface-variant mb-4">권장 매장 규모</p>
+                        <p class="text-sm text-on-surface-variant">10개 테이블·라운지·주방 기준</p>
+                    </div>
+
+                    <div class="reveal bg-white border-2 border-outline p-8 rounded-lg">
+                        <div class="text-4xl font-bold text-on-surface mb-2">1:1</div>
+                        <p class="text-on-surface-variant mb-4">맞춤 견적 상담</p>
+                        <p class="text-sm text-on-surface-variant">입지·규모에 따른 상세 비용 안내</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Expected Revenue Section -->
     <section id="expected-revenue" class="section-spacing bg-white">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
@@ -807,7 +922,7 @@
                     <p class="inquiry-eyebrow text-sm font-semibold tracking-widest mb-2">지금 바로 시작하세요</p>
                     <h2 class="inquiry-heading text-4xl md:text-5xl font-bold mb-8">프리미엄 성공을 향한 첫 걸음</h2>
                     <p class="inquiry-lead text-lg mb-8 leading-relaxed">
-                        아래 양식을 작성해 주시면, 저희 가맹 개발 팀이 24시간 이내에 연락하여 종합적인 투자 가이드를 제공해 드립니다.
+                        관심만 있으셔도 괜찮습니다. 아래 양식을 작성해 주시면 가맹 개발 팀이 24시간 이내에 연락해 브랜드·비용·절차를 안내해 드립니다.
                     </p>
 
                     <div class="space-y-6">
@@ -875,18 +990,10 @@
     <!-- Footer -->
     <footer id="site-footer" class="hidden bg-on-surface text-white py-12">
         <div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
                     <h4 class="text-2xl font-bold text-white mb-4">FOURCARD</h4>
                     <p class="text-white/70 text-sm">포카드 홀덤펍은 건전한 마인드 스포츠 문화를 지향합니다.</p>
-                </div>
-                <div>
-                    <h5 class="font-bold text-white mb-4">빠른 링크</h5>
-                    <ul class="space-y-2 text-sm text-white/70">
-                        <li><button type="button" class="footer-nav hover:text-white transition text-left" data-panel="brand">브랜드 소개</button></li>
-                        <li><button type="button" class="footer-nav hover:text-white transition text-left" data-panel="brand" data-section="competitiveness">브랜드 경쟁력</button></li>
-                        <li><button type="button" class="footer-nav hover:text-white transition text-left" data-panel="franchise" data-section="inquiry-form">창업 문의</button></li>
-                    </ul>
                 </div>
                 <div>
                     <h5 class="font-bold text-white mb-4">문의</h5>
@@ -1027,12 +1134,6 @@
                 e.preventDefault();
                 showPanel(btn.dataset.panel, btn.dataset.section);
                 if (mobileMenu) mobileMenu.classList.add('hidden');
-            });
-        });
-
-        document.querySelectorAll('.footer-nav').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showPanel(btn.dataset.panel, btn.dataset.section || null);
             });
         });
 

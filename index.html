@@ -95,6 +95,13 @@
             font-size: calc(1rem + 1pt);
             background-color: #ffffff;
             color: #1a1a1a;
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        /* 긴 URL·이메일만 필요 시 글자 단위 줄바꿈 */
+        .break-long-token {
+            word-break: break-all;
         }
 
         .material-symbols-outlined {
@@ -135,6 +142,8 @@
             font-weight: 800;
             color: #ffffff;
             letter-spacing: -0.02em;
+            font-size: clamp(1.75rem, 5.5vw, 3.25rem);
+            line-height: 1.15;
         }
 
         .hero-headline-accent {
@@ -143,7 +152,13 @@
             font-weight: 800;
             color: var(--brand-gold);
             letter-spacing: -0.02em;
-            margin-top: 0.15em;
+            margin-top: 0.2em;
+            font-size: clamp(1.375rem, 4.5vw, 2.75rem);
+            line-height: 1.2;
+        }
+
+        .hero-layout {
+            width: 100%;
         }
 
         .hero-copy {
@@ -282,24 +297,173 @@
         }
 
         @media (max-width: 1023px) {
+            .hero-section {
+                height: auto;
+                min-height: 100svh;
+                min-height: 100dvh;
+                max-height: none;
+                overflow-x: hidden;
+                overflow-y: auto;
+                padding-top: 5rem;
+                padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
+                justify-content: center;
+            }
+
+            .hero-section-inner {
+                align-items: center;
+                justify-content: center;
+                padding-top: clamp(1rem, 3vh, 2rem);
+                padding-bottom: clamp(1rem, 3vh, 2rem);
+            }
+
+            .hero-layout {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: clamp(1.5rem, 4vh, 2.25rem);
+            }
+
+            .hero-text-block {
+                width: 100%;
+                max-width: 28rem;
+            }
+
             .hero-cards {
-                height: 280px;
-                margin-top: 1rem;
+                width: min(100%, 320px);
+                height: 240px;
+                margin-top: 0;
+                margin-left: auto;
+                margin-right: auto;
+                flex-shrink: 0;
             }
 
             .hero-card {
-                width: 175px;
-                max-height: 262px;
+                width: 155px;
+                max-height: 228px;
             }
 
             .hero-card--back {
-                left: 2%;
+                left: 4%;
                 top: 0;
             }
 
             .hero-card--front {
-                left: 40%;
-                top: 10%;
+                left: 38%;
+                top: 8%;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-cards {
+                width: min(100%, 300px);
+                height: 200px;
+            }
+
+            .hero-card {
+                width: 128px;
+                max-height: 192px;
+                border-radius: 12px;
+            }
+
+            .hero-card-corner-rank {
+                font-size: 1.2rem;
+            }
+
+            .hero-card-corner-suit {
+                font-size: 0.85rem;
+            }
+
+            .hero-card-corner--tl {
+                top: 10px;
+                left: 12px;
+            }
+
+            .hero-card-corner--br {
+                bottom: 10px;
+                right: 12px;
+            }
+
+            .hero-card-logo {
+                max-width: 72px;
+            }
+
+            .hero-card--back {
+                left: 6%;
+            }
+
+            .hero-card--front {
+                left: 36%;
+                top: 6%;
+            }
+
+            .hero-title {
+                margin-bottom: 1rem;
+            }
+
+            .hero-copy {
+                font-size: 0.9375rem;
+                line-height: 1.65;
+                margin-bottom: 1.25rem;
+            }
+
+            .section-spacing {
+                padding: 3.5rem 0;
+            }
+
+            .section-spacing .text-center > h2,
+            .section-spacing .text-center > .text-lg,
+            .section-spacing > div > .reveal > h2 {
+                max-width: 100%;
+            }
+
+            .section-spacing h2.text-4xl,
+            .section-spacing h2.text-3xl {
+                font-size: clamp(1.625rem, 5.5vw, 2rem);
+                line-height: 1.25;
+            }
+
+            .section-spacing .text-lg {
+                font-size: 0.9375rem;
+                line-height: 1.65;
+            }
+
+            .section-spacing .text-center.mb-10,
+            .section-spacing .text-center.mb-12,
+            .section-spacing .text-center.mb-16 {
+                margin-bottom: 2rem;
+            }
+
+            #brand-story .flex.gap-6 {
+                flex-wrap: wrap;
+                gap: 1.25rem 2rem;
+            }
+
+            #brand-story .flex.gap-6 .text-4xl {
+                font-size: 1.5rem;
+            }
+
+            .competition-intro {
+                padding: 1.5rem;
+            }
+
+            .competition-weekend {
+                padding: 1.5rem;
+            }
+
+            #franchise-process > div > .grid {
+                gap: 1.5rem;
+            }
+
+            .hero-cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .hero-cta-btn {
+                width: auto;
             }
         }
 
@@ -522,6 +686,10 @@
                 font-size: calc(0.75rem + 3pt);
                 line-height: 1rem;
             }
+
+            .section-eyebrow {
+                letter-spacing: 0.06em;
+            }
         }
 
         @media (min-width: 768px) {
@@ -693,15 +861,15 @@
     <!-- Hero Section -->
     <section id="hero-section" class="hero-section relative text-white overflow-hidden">
         <div class="hero-section-inner max-w-container-max mx-auto px-margin-mobile md:px-gutter">
-            <div class="grid w-full lg:grid-cols-[1.05fr_0.95fr] gap-8 lg:gap-12 items-center">
-                <div class="text-left max-w-xl">
+            <div class="hero-layout grid w-full lg:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-8 lg:gap-12 items-center">
+                <div class="hero-text-block text-left max-w-xl lg:order-1">
                     <h1 class="hero-title mb-5 md:mb-6">
-                        <span class="hero-headline-line text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.15]">포카드 홀덤펍</span>
-                        <span class="hero-headline-accent text-3xl md:text-4xl lg:text-[2.75rem] leading-tight">성공적인 창업의 파트너</span>
+                        <span class="hero-headline-line">포카드 홀덤펍</span>
+                        <span class="hero-headline-accent">성공적인 창업의 파트너</span>
                     </h1>
                     <p class="hero-copy text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
-                        홀덤펍 창업을 혼자서 처음부터 고민하지 않아도 됩니다.<br/>
-                        포카드가 전국에서 검증해 온 프랜차이즈 시스템을 따라<br/>
+                        홀덤펍 창업을 혼자서 처음부터 고민하지 않아도 됩니다.
+                        포카드가 전국에서 검증해 온 프랜차이즈 시스템을 따라
                         당신의 매장으로 이어가세요.
                     </p>
                     <div>
@@ -711,7 +879,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="hero-cards hidden md:block" aria-hidden="true">
+                <div class="hero-cards w-full lg:order-2" aria-hidden="true">
                     <div class="hero-card-glow"></div>
                     <div class="hero-card hero-card--back">
                         <div class="hero-card-corner hero-card-corner--tl">
@@ -783,7 +951,7 @@
                 <p class="section-eyebrow font-semibold tracking-widest mb-2">포카드의 차별성</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-on-surface">브랜드 경쟁력</h2>
                 <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mt-6 leading-relaxed">
-                    오픈부터 운영까지, 본사가 함께하는 창업·운영 인프라와<br>
+                    오픈부터 운영까지, 본사가 함께하는 창업·운영 인프라와
                     고객이 머물고 다시 찾아오게 만드는 매장 경험으로 경쟁력을 완성합니다.
                 </p>
             </div>
@@ -987,7 +1155,7 @@
                 <p class="section-eyebrow font-semibold tracking-widest mb-2">전국 네트워크</p>
                 <h2 class="text-4xl md:text-5xl font-bold text-on-surface">전국 지점 안내</h2>
                 <p class="text-lg text-on-surface-variant max-w-2xl mx-auto mt-6 leading-relaxed">
-                    전국 30개 지점의 위치를 지도에서 확인하세요.<br>
+                    전국 30개 지점의 위치를 지도에서 확인하세요.
                     마커를 클릭하면 지점 정보를 볼 수 있습니다.
                 </p>
             </div>
@@ -1045,52 +1213,54 @@
                         <h3 class="text-2xl font-bold text-on-surface mb-2">창업 비용 내역</h3>
                         <p class="text-sm text-on-surface-variant">가맹비·인테리어·장비·보증금·초기 운영 자금을 포함한 항목별 견적입니다.</p>
                     </div>
-                    <table class="w-full">
+                    <div class="overflow-x-auto -mx-px">
+                    <table class="w-full min-w-[520px]">
                         <thead class="bg-surface-dim">
                             <tr>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">항목</th>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">예상 금액</th>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">비고</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface whitespace-nowrap">항목</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface whitespace-nowrap">예상 금액</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface">비고</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 font-bold text-on-surface">가맹비</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 30,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">브랜드 사용권·본사 지원</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-on-surface whitespace-nowrap">가맹비</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 30,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">브랜드 사용권·본사 지원</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">인테리어</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 120,000,000 ~ 160,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">평수·디자인에 따라 변동</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">인테리어</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 120,000,000 ~ 160,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">평수·디자인에 따라 변동</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">장비·시설</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 85,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">테이블, 칩, AV, 주방 등</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">장비·시설</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 85,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">테이블, 칩, AV, 주방 등</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">임대 보증금</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 50,000,000 ~ 80,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">입지·면적 기준</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">임대 보증금</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 50,000,000 ~ 80,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">입지·면적 기준</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">초기 운영 자금</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 40,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">약 3개월 인건비·재고 등</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">초기 운영 자금</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 40,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">약 3개월 인건비·재고 등</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">기타 (허가·교육·오픈)</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 15,000,000</td>
-                                <td class="px-6 py-4 text-on-surface-variant text-sm">인허가, 직원 교육, 오픈 마케팅</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">기타 (허가·교육·오픈)</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 15,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface-variant text-sm">인허가, 직원 교육, 오픈 마케팅</td>
                             </tr>
                             <tr class="border-t-2 border-primary bg-primary/5">
-                                <td class="px-6 py-4 font-bold text-primary">총 창업 비용</td>
-                                <td class="px-6 py-4 font-bold text-primary">약 ₩ 3.4억 ~ 4.1억</td>
-                                <td class="px-6 py-4 text-sm text-on-surface-variant">표준 규모 매장 기준</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-primary whitespace-nowrap">총 창업 비용</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-primary whitespace-nowrap">약 ₩ 3.4억 ~ 4.1억</td>
+                                <td class="px-4 md:px-6 py-4 text-sm text-on-surface-variant">표준 규모 매장 기준</td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                     <p class="px-8 py-4 text-xs text-on-surface-variant bg-surface-dim">
                         * 위 금액은 참고용 견적이며, 상담 시 입지·규모·인테리어 범위에 맞춰 상세 견적을 안내해 드립니다. 확정 비용은 계약 단계에서 별도 협의합니다.
                     </p>
@@ -1133,42 +1303,44 @@
                         <h3 class="text-2xl font-bold text-on-surface mb-2">월 수익 분석 (10개 테이블, 200m² 기준)</h3>
                         <p class="text-sm text-on-surface-variant">평균적인 성숙 단계 매장의 재무 모델입니다.</p>
                     </div>
-                    <table class="w-full">
+                    <div class="overflow-x-auto -mx-px">
+                    <table class="w-full min-w-[480px]">
                         <thead class="bg-surface-dim">
                             <tr>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">항목</th>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">금액</th>
-                                <th class="px-6 py-4 text-left font-bold text-on-surface">비율</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface whitespace-nowrap">항목</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface whitespace-nowrap">금액</th>
+                                <th class="px-4 md:px-6 py-4 text-left font-bold text-on-surface whitespace-nowrap">비율</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 font-bold text-on-surface">총 매출</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 85,000,000</td>
-                                <td class="px-6 py-4 text-on-surface">100%</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-on-surface whitespace-nowrap">총 매출</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 85,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">100%</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">인건비</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 12,000,000</td>
-                                <td class="px-6 py-4 text-red-600">-14.1%</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">인건비</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 12,000,000</td>
+                                <td class="px-4 md:px-6 py-4 text-red-600 whitespace-nowrap">-14.1%</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">임대료 및 관리비</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 8,500,000</td>
-                                <td class="px-6 py-4 text-red-600">-10.0%</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">임대료 및 관리비</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 8,500,000</td>
+                                <td class="px-4 md:px-6 py-4 text-red-600 whitespace-nowrap">-10.0%</td>
                             </tr>
                             <tr class="border-t border-outline">
-                                <td class="px-6 py-4 text-on-surface">식음료 원가</td>
-                                <td class="px-6 py-4 text-on-surface">₩ 15,300,000</td>
-                                <td class="px-6 py-4 text-red-600">-18.0%</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">식음료 원가</td>
+                                <td class="px-4 md:px-6 py-4 text-on-surface whitespace-nowrap">₩ 15,300,000</td>
+                                <td class="px-4 md:px-6 py-4 text-red-600 whitespace-nowrap">-18.0%</td>
                             </tr>
                             <tr class="border-t-2 border-primary bg-primary/5">
-                                <td class="px-6 py-4 font-bold text-primary">영업 이익</td>
-                                <td class="px-6 py-4 font-bold text-primary">₩ 49,200,000</td>
-                                <td class="px-6 py-4 font-bold text-primary">+57.9%</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-primary whitespace-nowrap">영업 이익</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-primary whitespace-nowrap">₩ 49,200,000</td>
+                                <td class="px-4 md:px-6 py-4 font-bold text-primary whitespace-nowrap">+57.9%</td>
                             </tr>
                         </tbody>
                     </table>
+                    </div>
                     <p class="px-8 py-4 text-xs text-on-surface-variant bg-surface-dim">
                         * 이 수치는 평균 성숙 단계 매장 기준입니다. 초기 오픈 시 고객 수 누적에 따라 달라질 수 있습니다. ROI는 영업 시작 후 14-18개월 이내로 예상됩니다.
                     </p>
@@ -1319,7 +1491,7 @@
                             </div>
                             <div>
                                 <p class="inquiry-contact-label text-xs font-semibold">이메일 문의</p>
-                                <p class="inquiry-contact-value text-lg font-bold">biz@fourcardpub.com</p>
+                                <p class="inquiry-contact-value break-long-token text-lg font-bold">biz@fourcardpub.com</p>
                             </div>
                         </div>
                     </div>
@@ -1613,16 +1785,16 @@
             setTimeout(() => storeMapInstance.invalidateSize(), 100);
         };
 
-        const GALLERY_PLACEHOLDER_NAME = '포카드 지역 ㅇㅇ점';
+        const GALLERY_PLACEHOLDER_NAME = '지역 ㅇㅇ점';
         const GALLERY_ITEMS = [
-            { name: '포카드 대구 광장점', image: 'image/gallery/01 포카드 대구 광장점.jpg' },
-            { name: '포카드 대구 동대구점', image: 'image/gallery/02 포카드 대구 동대구점.jpg' },
-            { name: '포카드 대구 동성로점', image: 'image/gallery/03 포카드 대구 동성로점.jpg' },
-            { name: '포카드 대구 성서점', image: 'image/gallery/04 포카드 대구 성서점.jpg' },
-            { name: '포카드 대구 시지점', image: 'image/gallery/05 포카드 대구 시지점.jpg' },
-            { name: '포카드 대구 월성점', image: 'image/gallery/06 포카드 대구 월성점.jpg' },
-            { name: '포카드 대구 칠곡점', image: 'image/gallery/07 포카드 대구 칠곡점.jpg' },
-            { name: '포카드 대구 현풍점', image: 'image/gallery/08 포카드 대구 현풍점.jpg' },
+            { name: '대구 광장점', image: 'image/gallery/01 대구 광장점.jpg' },
+            { name: '대구 동대구점', image: 'image/gallery/02 대구 동대구점.jpg' },
+            { name: '대구 동성로점', image: 'image/gallery/03 대구 동성로점.jpg' },
+            { name: '대구 성서점', image: 'image/gallery/04 대구 성서점.jpg' },
+            { name: '대구 시지점', image: 'image/gallery/05 대구 시지점.jpg' },
+            { name: '대구 월성점', image: 'image/gallery/06 대구 월성점.jpg' },
+            { name: '대구 칠곡점', image: 'image/gallery/07 대구 칠곡점.jpg' },
+            { name: '대구 현풍점', image: 'image/gallery/08 대구 현풍점.jpg' },
             ...Array.from({ length: 22 }, () => ({ name: GALLERY_PLACEHOLDER_NAME, image: null }))
         ];
 

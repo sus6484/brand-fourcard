@@ -810,6 +810,7 @@
 
         .gallery-grid img {
             object-fit: cover;
+            background-color: #eef0ee;
         }
 
         .gallery-placeholder {
@@ -1679,7 +1680,10 @@
                     </div>
                 </div>
                 <div class="reveal">
-                    <img src="image/02.jpg" alt="포카드 홀덤펍 내부" class="w-full shadow-lg">
+                    <picture>
+                        <source srcset="image/optimized/02.webp" type="image/webp">
+                        <img src="image/02.jpg" alt="포카드 홀덤펍 내부" class="w-full shadow-lg" loading="lazy" decoding="async">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -1768,12 +1772,16 @@
             </div>
 
             <div class="reveal mb-10 md:mb-12 overflow-hidden rounded-xl shadow-md">
-                <img
-                    src="image/03.jpg"
-                    alt="포카드 홀덤펍 플레이"
-                    class="brand-visual brand-visual-banner w-full"
-                    loading="lazy"
-                >
+                <picture>
+                    <source srcset="image/optimized/03.webp" type="image/webp">
+                    <img
+                        src="image/03.jpg"
+                        alt="포카드 홀덤펍 플레이"
+                        class="brand-visual brand-visual-banner w-full"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -2499,6 +2507,10 @@
                                 setTimeout(() => storeMapInstance.invalidateSize(), 200);
                             }
                         }
+                        if (panelId === 'store' && sectionId === 'store-gallery' && !storeGalleryInitialized) {
+                            initStoreGallery();
+                            storeGalleryInitialized = true;
+                        }
                     });
                 });
             } else {
@@ -2510,6 +2522,10 @@
                 if (storeMapInstance) {
                     setTimeout(() => storeMapInstance.invalidateSize(), 200);
                 }
+            }
+
+            if (panelId === 'store') {
+                queueStoreGalleryInit();
             }
         };
 
@@ -2559,7 +2575,10 @@
             });
         }
 
-        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('scroll', () => {
+            revealOnScroll();
+            queueStoreGalleryInit();
+        });
 
         const STORE_BRANCHES = [
             { name: '인동점', region: '구미', lat: 36.108709, lng: 128.420456, address: '경북 구미시 인동중앙로5길 19-8, 로데오프라자 c2층' },
@@ -2807,10 +2826,33 @@
             ...Array.from({ length: 22 }, () => ({ name: GALLERY_PLACEHOLDER_NAME, image: null }))
         ];
 
-        const galleryImageSrc = (path) => {
+        const galleryAssetName = (path) => path.slice(path.lastIndexOf('/') + 1).replace(/\.[^/.]+$/, '');
+
+        const galleryThumbSrc = (path) => {
             const i = path.lastIndexOf('/');
-            if (i === -1) return encodeURI(path);
-            return path.slice(0, i + 1) + encodeURIComponent(path.slice(i + 1));
+            const dir = path.slice(0, i + 1);
+            return `${dir}thumbs/${encodeURIComponent(galleryAssetName(path))}.webp`;
+        };
+
+        const galleryDisplaySrc = (path) => {
+            const i = path.lastIndexOf('/');
+            const dir = path.slice(0, i + 1);
+            return `${dir}display/${encodeURIComponent(galleryAssetName(path))}.webp`;
+        };
+
+        let storeGalleryInitialized = false;
+
+        const queueStoreGalleryInit = () => {
+            if (storeGalleryInitialized) return;
+            const section = document.getElementById('store-gallery');
+            const storePanel = document.getElementById('panel-store');
+            if (!section || !storePanel?.classList.contains('active')) return;
+
+            const { top, bottom } = section.getBoundingClientRect();
+            if (bottom < -200 || top > window.innerHeight + 300) return;
+
+            initStoreGallery();
+            storeGalleryInitialized = true;
         };
 
         const initGalleryLightbox = () => {
@@ -2838,7 +2880,7 @@
 
             document.querySelectorAll('.gallery-thumb-btn').forEach((btn) => {
                 btn.addEventListener('click', () => {
-                    openLightbox(btn.dataset.src, btn.dataset.name);
+                    openLightbox(btn.dataset.displaySrc || btn.dataset.src, btn.dataset.name);
                 });
             });
 
@@ -2859,13 +2901,18 @@
             GALLERY_ITEMS.forEach((item) => {
                 const card = document.createElement('article');
                 card.className = 'flex flex-col overflow-hidden rounded-md bg-white shadow-sm';
-                const src = item.image ? galleryImageSrc(item.image) : '';
+                const src = item.image ? galleryThumbSrc(item.image) : '';
+                const displaySrc = item.image ? galleryDisplaySrc(item.image) : '';
                 const media = item.image
-                    ? `<button type="button" class="gallery-thumb-btn" data-src="${src}" data-name="${item.name}" aria-label="${item.name} 사진 크게 보기">
+                    ? `<button type="button" class="gallery-thumb-btn" data-src="${src}" data-display-src="${displaySrc}" data-name="${item.name}" aria-label="${item.name} 사진 크게 보기">
                             <img
                                 src="${src}"
                                 alt="${item.name} 매장"
+                                width="480"
+                                height="360"
                                 loading="lazy"
+                                decoding="async"
+                                fetchpriority="low"
                                 class="w-full hover:scale-105 transition-transform duration-300 pointer-events-none"
                             >
                         </button>`
@@ -2883,8 +2930,6 @@
             grid.appendChild(fragment);
             initGalleryLightbox();
         };
-
-        initStoreGallery();
 
         if (inquiryFormSection && franchiseStickyBar) {
             const inquiryObserver = new IntersectionObserver((entries) => {
